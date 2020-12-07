@@ -9,13 +9,24 @@ package lk.satra.hr.main;
  *
  * @author Jayani
  */
-public class StartUp {
+public class StartUp extends Application{
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static Stage primaryStage;
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        this.primaryStage = primaryStage;
+        Parent parent = FXMLLoader.load(this.getClass()
+                .getResource("/lk/"));
+        Scene scene = new Scene(parent);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
+        primaryStage.setTitle(" - Login");
+        primaryStage.show();
     }
-    
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
+
